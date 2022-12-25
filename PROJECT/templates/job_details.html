@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <title>{{object.Service_name|safe}}|CLOUD8020.COM</title>
+  {% include 'head.html' %}
+  <!-- =======================================================
+  * Template Name: Moderna - v4.8.0
+  * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'nav-misc.html' %}
+
+  <main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>{{object.Service_name}}</h2>
+
+          <ol>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Jobs</a></li>
+            <li>{{object.Job_Title}}</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-12 entries">
+
+            <article class="entry entry-single">
+                <span class="badge rounded-pill bg-success">{{object.Job_Type}}</span>
+                            <span class="badge rounded-pill bg-dark">{{object.Job_Category}}</span>
+                            <span class="badge rounded-pill bg-info">{{object.Country}}</span>
+                            <span class="badge rounded-pill bg-warning">{{object.State}}</span>
+                            <hr color="gray">
+
+           {{object.Job_Title|safe}}
+
+           <hr color="gray">
+           
+
+            </article><!-- End blog entry -->
+
+           
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4 d-none">
+
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+
+              <h3 class="sidebar-title">Inside {{object.Service_name}}</h3>
+              <div class="sidebar-item categories">
+                <ul class="list-style-type: square;">
+                  {% for solution in obj_sub %}
+                  <li><a href="{{baseUrl}}/solutions/subsolutions/{{solution.Service_name}}/view">{{solution.Service_name}}</a></li>
+                  {% endfor %}
+                  
+                </ul>
+              </div>
+              <h3 class="sidebar-title">Other Solutions</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  {% for solution in obj_all %}
+                  <li><a href="{{baseUrl}}/solutions/{{solution.Service_name}}">{{solution.Service_name}}</a></li>
+                  {% endfor %}
+                  
+                </ul>
+              </div><!-- End sidebar categories-->
+
+             
+             
+
+              
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+   
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  {% include 'footer.html' %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+ {% include 'js.html' %}
+
+</body>
+
+</html>

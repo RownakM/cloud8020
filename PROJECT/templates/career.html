@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <title>
+    {% for a in sol_header %}
+    {{a.header}} 
+    
+    {% endfor %}| CLOUD8020.COM</title>
+  {% include 'head.html' %}
+  <!-- =======================================================
+  * Template Name: Moderna - v4.8.0
+  * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'nav-misc.html' %}
+
+  <main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            
+            {% for a in sol_header %}
+            <h2>{{a.header}}</h2>
+            
+            {% endfor %}
+          
+
+          <ol>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Training</a></li>
+            <li>{% for a in sol_header %}
+               {{a.header}}
+                
+                {% endfor %}</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+                {% for i in solutions %}
+                {{i.project_desc|safe}}
+                {% endfor %}
+
+            </article><!-- End blog entry -->
+
+           
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+              {% comment %} <h3 class="sidebar-title">Search</h3> {% endcomment %}
+              <div class="sidebar-item search-form d-none">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+
+              <h3 class="sidebar-title">{% for a in sol_header %}
+                {{a.header}}
+                
+                {% endfor %}</h3>
+              <div class="sidebar-item categories">
+                <ul class="list-style-type: square;">
+                  {% for solution in sub_corp %}
+                  <li><a href="{{baseUrl}}/career-change-training/{{solution.Sub_tag}}">{{solution.Sub_career_Name}}</a></li>
+                  {% endfor %}
+                  
+                </ul>
+              </div>
+              {% comment %} <h3 class="sidebar-title">Other Solutions</h3> {% endcomment %}
+              <div class="sidebar-item categories d-none">
+                <ul>
+                  {% for solution in obj_all %}
+                  <li><a href="{{baseUrl}}/solutions/{{solution.Service_name}}">{{solution.Service_name}}</a></li>
+                  {% endfor %}
+                  
+                </ul>
+              </div><!-- End sidebar categories-->
+
+             
+             
+
+              
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+   
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  {% include 'footer.html' %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+ {% include 'js.html' %}
+
+</body>
+
+</html>

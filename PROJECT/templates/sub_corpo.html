@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <title>{{object.Sub_Corp_Name}} | CLOUD8020.COM</title>
+  {% include 'head.html' %}
+  <!-- =======================================================
+  * Template Name: Moderna - v4.8.0
+  * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'nav-misc.html' %}
+
+  <main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+         
+          <h2>{{object.Sub_Corp_Name}}</h2>
+          
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Corporate Training</a></li>
+            <li>{{object.Sub_Corp_Name}}</li>
+            {% comment %} <li>{{object.Service_name}}</li> {% endcomment %}
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-12 entries">
+
+            <article class="entry entry-single">
+
+           {{object.Sub_Corp_Data|safe}}
+
+            </article><!-- End blog entry -->
+
+           
+
+          </div><!-- End blog entries list -->
+
+         
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+    <section class="breadcrumbs d-none" style="background: #1e4257;">
+      <div class="container-fluid text-white text-center">
+
+        <!-- <div class="d-flex justify-content-between align-items-center">
+          <h2>{{object.Service_name}}</h2>
+
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Solutions</a></li>
+            <li>{{object.Service_name}}</li>
+          </ol>
+        </div> -->
+        <div class="container w-75">
+          <div class="row">
+            <div class="col-lg-6 text-center" style="border-right: 1px solid white; border-bottom: 1px solid white;">
+              <div class="my-4 mx-0 px-0"><i class="bx bx-{{object.Icon_set1}}" style="font-size: 7rem; border: 6px solid white; border-radius: 50%;"></i></div>
+              <div class="text-center"><hr color="white" align="center" class="w-25" style="margin-left:37.5% !important; margin-right:37.5% !important"></div>
+              {{object.Icon_set1_text|safe}}
+            </div>
+            <div class="col-lg-6 text-center" style="border-bottom: 1px solid white;">
+              <div class="my-4 mx-0 px-0"><i class="bx bx-{{object.Icon_set2}}" style="font-size: 7rem; border: 6px solid white; border-radius: 50%;"></i></div>
+              <div class="text-center"><hr color="white" align="center" class="w-25" style="margin-left:37.5% !important; margin-right:37.5% !important"></div>
+              {{object.Icon_set2_text|safe}}
+            </div>
+            <div class="col-lg-6 text-center" style="border-right: 1px solid white;">
+              <div class="my-4 mx-0 px-0"><i class="bx bx-{{object.Icon_set3}}" style="font-size: 7rem; border: 6px solid white; border-radius: 50%;"></i></div>
+              <div class="text-center"><hr color="white" align="center" class="w-25" style="margin-left:37.5% !important; margin-right:37.5% !important"></div>
+              {{object.Icon_set3_text|safe}}
+            </div>
+            <div class="col-lg-6 text-center">
+              <div class="my-4 mx-0 px-0"><i class="bx bx-{{object.Icon_set4}}" style="font-size: 7rem; border: 6px solid white; border-radius: 50%;"></i></div>
+              <div class="text-center"><hr color="white" align="center" class="w-25" style="margin-left:37.5% !important; margin-right:37.5% !important"></div>
+              {{object.Icon_set4_text|safe}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="breadcrumbs">
+      <div class="container my-4 py-4">
+
+        <div class="d-flex justify-content-between align-items-center text-center">
+         
+          <div class="text-center" style="margin: auto;"><h3>MORE INFORMATION ON {{object.Sub_Corp_Name}}</h3><a href="http://cloud8020.com/contact"><i class="bx bx-paper-plane bx-lg" style="color: #1e4257;border: 4px solid #1e4257;border-radius:50%; padding: 10px;"></i></a></div>
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  {% include 'footer.html' %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+ {% include 'js.html' %}
+
+</body>
+
+</html>

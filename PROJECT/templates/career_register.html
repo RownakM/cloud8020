@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Register for {{object.Sub_career_Name}} | CLOUD8020.COM</title>
+ {% include 'head.html' %}
+  <!-- =======================================================
+  * Template Name: Moderna - v4.8.0
+  * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'nav-misc.html' %}<!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Register for {{object.Sub_career_Name}}</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Career Change Training</li>
+            <li>{{object.Sub_career_Name}}</li>
+            <li>Register</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="info-box">
+                  <i class="bx bx-calendar"></i>
+                  <h3>Start Date</h3>
+                  {% comment %} {% for a in con_add%} {% endcomment %}
+                  <p>{{object.Sub_Start_Date}}</p>
+                  {% comment %} {% endfor %} {% endcomment %}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box">
+                  <i class="bx bx-calendar"></i>
+                  <h3>End Date</h3>
+                  <p>
+                  {{object.Sub_Start_Date}}</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box">
+                  <i class="bx bx-dollar"></i>
+                  <h3>Amount</h3>
+                  <p>USD {{object.Fee}}.00</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 text-center" style="vertical-align: middle;">
+            <form>
+              {% csrf_token %}
+              <div class="row">
+                
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="row">
+              <div class="form-group mt-3 col-md-6">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Description" value="{{object.Sub_career_Name}}" required readonly>
+              </div>
+              <div class="form-group mt-3 col-md-6">
+                <input type="text" class="form-control" name="subject" id="Mobile" placeholder="Mobile" required>
+              </div>
+              <div class="form-group mt-3 col-md-12">
+                <input type="text" class="form-control" name="subject" id="amt" placeholder="Amount" required value="{{object.Fee}}" readonly>
+              </div>
+              
+              <div class="form-group mt-3">
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha w-100" data-sitekey="6LdZ3vEeAAAAAEJrzw1R9_E1v5JTTGi4JeDifyb7"></div>
+              </div>
+              <div class="my-3">
+                {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                  {{message}}
+                </div>
+                {% endfor %}
+              </div>
+              </div>
+              {% comment %} <div class="text-center"><button type="submit" class="btn btn-dark">Send Message</button></div> {% endcomment %}
+            </form>
+            
+            <div id="smart-button-container">
+                <div style="text-align: center;">
+                  <div id="paypal-button-container"></div>
+                </div>
+              </div>
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+            <script>
+                $( document ).ready(function() {
+                    
+                    var amt=$('#amt').val();
+                    var desc=$('#desc').val();
+              function initPayPalButton() {
+                paypal.Buttons({
+                  style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'paypal',
+                    
+                  },
+            
+                  createOrder: function(data, actions) {
+                    return actions.order.create({
+                      purchase_units: [{"description":desc,"amount":{"currency_code":"USD","value":amt}}]
+                    });
+                  },
+            
+                  onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(orderData) {
+
+
+
+                      
+                      // Full available details
+                      console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            
+                      // Show a success message within this page, e.g.
+                      const element = document.getElementById('paypal-button-container');
+                      element.innerHTML = '';
+                      element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    var name=$('#name').val();
+                    var email=$('#email').val();
+                    var desc=$('#subject').val();
+                    var Mobile=$('#Mobile').val();
+                    var amt=$('#amt').val();
+                      // Or go to another URL:  actions.redirect('thank_you.html');
+                      location.replace('success/?name='+name+'&email='+email+'&desc='+desc+'&Mobile='+Mobile+'&amt='+amt);
+                      
+                    });
+                  },
+            
+                  onError: function(err) {
+                    console.log(err);
+                  }
+                }).render('#paypal-button-container');
+              }
+              initPayPalButton();
+            });
+            </script>
+          <!-- <h1>CONTACT US</h1> -->
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+    <!-- ======= Map Section ======= -->
+    <section class="map mt-2 d-none">
+      <div class="container-fluid p-0 d-none">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007%2C%20USA!5e0!3m2!1sen!2sbg!4v1579767901424!5m2!1sen!2sbg" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+    </section><!-- End Map Section -->
+    <section>
+        
+    </section>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  {% include 'footer.html' %}<!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% include 'js.html' %}
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+{% load static %}
+<header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <a href="http://cloud8020.com/"><img src="{%static 'assets/img/logo1.png' %}" alt="" class='i' style="width: 55% !important; margin-bottom: 2%;"></a>
+
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="../">Maison</a></li>
+          {% comment %} <li><a href="../about">Sur</a></li> {% endcomment %}
+          <li><a href="../solutions">Solutions</a></li>
+          <li><a href="../partners">Les partenaires</a></li>
+          {% comment %} <li><a href="../projects">projets</a></li> {% endcomment %}
+
+          <li class="dropdown"><a href="#" class="t"><span>Training</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="http://ittiq.com">Individual Training</a></li>
+              
+              <li><a href="http://cloud8020.com/corporate-training/">Corporate Training</a></li>
+
+              {% comment %} <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li> {% endcomment %}
+            </ul>
+          </li>
+     
+
+          <!-- <li><a href="team.html">Team</a></li> -->
+          <!-- <li><a href="blog.html">Blog</a></li> -->
+          <!-- <li class="dropdown"><a href="{{baseUrl}}/solutions"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+          <li><a href="../contact">Nous contacter</a></li>
+          <li>
+            <form action="/excel/" method="get">
+              {% csrf_token %}
+            
+            
+            <button class="btn btn-get-started mx-4" type="submit"  id="flexSwitchCheckDefault"><i class="fas fa-language fa-2x text-white"></i></button>
+            <input type="hidden" name="u" value="{{ request.get_full_path }}">
+            <label class="text-white" for="flexSwitchCheckDefault" style="text-transform: uppercase;">
+              
+             {{lan}}</label>
+              
+          
+        </form>
+        </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
